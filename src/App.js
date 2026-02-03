@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ShoppingCart, Menu, X, Heart, Search, User, MapPin, Phone, Mail, Instagram, Facebook, ChevronRight, Star, Check } from 'lucide-react';
 
 // Mock data for products
@@ -115,11 +115,11 @@ function App() {
     const categoryMatch = selectedCategory === 'All' || product.category === selectedCategory;
     const searchMatch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
     let priceMatch = true;
-    
+
     if (priceRange === 'under40') priceMatch = product.price < 40;
     if (priceRange === '40to60') priceMatch = product.price >= 40 && product.price <= 60;
     if (priceRange === 'over60') priceMatch = product.price > 60;
-    
+
     return categoryMatch && searchMatch && priceMatch;
   });
 
@@ -167,7 +167,7 @@ function App() {
               Mojis Mattel
             </button>
           </div>
-          
+
           <nav className="hidden md:flex space-x-8">
             <button onClick={() => setCurrentPage('home')} className={`${currentPage === 'home' ? 'text-rose-400' : 'text-gray-700'} hover:text-rose-400 transition`}>Home</button>
             <button onClick={() => setCurrentPage('shop')} className={`${currentPage === 'shop' ? 'text-rose-400' : 'text-gray-700'} hover:text-rose-400 transition`}>Shop</button>
@@ -265,7 +265,7 @@ function App() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <h2 className="text-4xl font-serif text-center mb-4">Featured Collections</h2>
         <p className="text-center text-gray-600 mb-12">Explore our most loved pieces</p>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {initialProducts.filter(p => p.featured).map((product) => (
             <div key={product.id} className="group cursor-pointer" onClick={() => { setSelectedProduct(product); setCurrentPage('product'); }}>
@@ -349,13 +349,13 @@ function App() {
   const ShopPage = () => (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="text-4xl font-serif mb-8">Shop Our Collection</h1>
-      
+
       {/* Filters */}
       <div className="mb-8 flex flex-col md:flex-row gap-4">
         <div className="flex-1">
           <label className="block text-sm font-medium text-gray-700 mb-2">Category</label>
-          <select 
-            value={selectedCategory} 
+          <select
+            value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
             className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-rose-400 focus:outline-none"
           >
@@ -364,11 +364,11 @@ function App() {
             ))}
           </select>
         </div>
-        
+
         <div className="flex-1">
           <label className="block text-sm font-medium text-gray-700 mb-2">Price Range</label>
-          <select 
-            value={priceRange} 
+          <select
+            value={priceRange}
             onChange={(e) => setPriceRange(e.target.value)}
             className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-rose-400 focus:outline-none"
           >
@@ -403,7 +403,7 @@ function App() {
               <p className="text-sm text-gray-500 mb-3">{product.category}</p>
               <div className="flex justify-between items-center">
                 <p className="text-rose-400 font-bold text-xl">€{product.price}</p>
-                <button 
+                <button
                   onClick={() => addToCart(product)}
                   className="bg-rose-400 text-white px-4 py-2 rounded-lg hover:bg-rose-500 transition"
                 >
@@ -450,7 +450,7 @@ function App() {
             <h1 className="text-4xl font-serif mb-4">{selectedProduct.name}</h1>
             <p className="text-3xl text-rose-400 font-bold mb-6">€{selectedProduct.price}</p>
             <p className="text-gray-700 mb-8">{selectedProduct.description}</p>
-            
+
             <div className="mb-8">
               <h3 className="font-semibold mb-3">Features:</h3>
               <ul className="space-y-2">
@@ -473,7 +473,7 @@ function App() {
               </ul>
             </div>
 
-            <button 
+            <button
               onClick={() => addToCart(selectedProduct)}
               className="w-full bg-rose-400 text-white py-4 rounded-lg font-semibold text-lg hover:bg-rose-500 transition transform hover:scale-105"
             >
@@ -535,7 +535,7 @@ function App() {
           <div className="text-center">
             <p className="text-gray-600 mb-4">Calendly Widget Integration</p>
             <p className="text-sm text-gray-500">
-              In production, embed Calendly widget here:<br/>
+              In production, embed Calendly widget here:<br />
               https://calendly.com/mojismattel
             </p>
             <button className="mt-4 bg-rose-400 text-white px-6 py-3 rounded-lg hover:bg-rose-500 transition">
@@ -555,16 +555,16 @@ function App() {
       <div className="grid md:grid-cols-2 gap-12">
         <div>
           <h2 className="text-2xl font-semibold mb-6">Contact Information</h2>
-          
+
           <div className="space-y-6 mb-8">
             <div className="flex items-start">
               <MapPin size={24} className="text-rose-400 mr-4 flex-shrink-0" />
               <div>
                 <p className="font-semibold">Address</p>
-                <p className="text-gray-600">Pieterbegweg<br/>Amsterdam 1105BM<br/>Netherlands</p>
+                <p className="text-gray-600">Pieterbegweg<br />Amsterdam 1105BM<br />Netherlands</p>
               </div>
             </div>
-            
+
             <div className="flex items-start">
               <Phone size={24} className="text-rose-400 mr-4 flex-shrink-0" />
               <div>
@@ -572,7 +572,7 @@ function App() {
                 <p className="text-gray-600">+31 616 385 457</p>
               </div>
             </div>
-            
+
             <div className="flex items-start">
               <Mail size={24} className="text-rose-400 mr-4 flex-shrink-0" />
               <div>
@@ -585,10 +585,10 @@ function App() {
           <div className="mb-8">
             <h3 className="font-semibold mb-4">Follow Us</h3>
             <div className="flex space-x-4">
-              <a href="#" className="bg-rose-400 text-white p-3 rounded-full hover:bg-rose-500 transition">
+              <a href="https://instagram.com/mojismattel" target="_blank" rel="noopener noreferrer" className="bg-rose-400 text-white p-3 rounded-full hover:bg-rose-500 transition">
                 <Instagram size={24} />
               </a>
-              <a href="#" className="bg-rose-400 text-white p-3 rounded-full hover:bg-rose-500 transition">
+              <a href="https://facebook.com/mojismattel" target="_blank" rel="noopener noreferrer" className="bg-rose-400 text-white p-3 rounded-full hover:bg-rose-500 transition">
                 <Facebook size={24} />
               </a>
             </div>
@@ -614,34 +614,34 @@ function App() {
               <input
                 type="text"
                 value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-rose-400 focus:outline-none"
                 required
               />
             </div>
-            
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
               <input
                 type="email"
                 value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-rose-400 focus:outline-none"
                 required
               />
             </div>
-            
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
               <textarea
                 value={formData.message}
-                onChange={(e) => setFormData({...formData, message: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 rows="6"
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-rose-400 focus:outline-none"
                 required
               ></textarea>
             </div>
-            
+
             <button type="submit" className="w-full bg-rose-400 text-white py-3 rounded-lg font-semibold hover:bg-rose-500 transition">
               Send Message
             </button>
@@ -686,7 +686,7 @@ function App() {
                 <input
                   type="text"
                   value={newProduct.name}
-                  onChange={(e) => setNewProduct({...newProduct, name: e.target.value})}
+                  onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })}
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-rose-400 focus:outline-none"
                   required
                 />
@@ -696,7 +696,7 @@ function App() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">Category</label>
                 <select
                   value={newProduct.category}
-                  onChange={(e) => setNewProduct({...newProduct, category: e.target.value})}
+                  onChange={(e) => setNewProduct({ ...newProduct, category: e.target.value })}
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-rose-400 focus:outline-none"
                 >
                   <option>Tassel Earrings</option>
@@ -712,7 +712,7 @@ function App() {
                   type="number"
                   step="0.01"
                   value={newProduct.price}
-                  onChange={(e) => setNewProduct({...newProduct, price: e.target.value})}
+                  onChange={(e) => setNewProduct({ ...newProduct, price: e.target.value })}
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-rose-400 focus:outline-none"
                   required
                 />
@@ -722,7 +722,7 @@ function App() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">Description</label>
                 <textarea
                   value={newProduct.description}
-                  onChange={(e) => setNewProduct({...newProduct, description: e.target.value})}
+                  onChange={(e) => setNewProduct({ ...newProduct, description: e.target.value })}
                   rows="3"
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-rose-400 focus:outline-none"
                   required
@@ -734,7 +734,7 @@ function App() {
                 <input
                   type="url"
                   value={newProduct.image}
-                  onChange={(e) => setNewProduct({...newProduct, image: e.target.value})}
+                  onChange={(e) => setNewProduct({ ...newProduct, image: e.target.value })}
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-rose-400 focus:outline-none"
                   placeholder="https://example.com/image.jpg"
                   required
@@ -838,7 +838,7 @@ function App() {
             <h3 className="text-2xl font-serif mb-4">Mojis Mattel</h3>
             <p className="text-gray-400">Handcrafted jewelry made with love in Amsterdam</p>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
@@ -848,7 +848,7 @@ function App() {
               <li><button onClick={() => setCurrentPage('contact')} className="text-gray-400 hover:text-white">Contact</button></li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-4">Collections</h4>
             <ul className="space-y-2">
@@ -858,7 +858,7 @@ function App() {
               <li className="text-gray-400">African-styled Earrings</li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-gray-400">
@@ -869,7 +869,7 @@ function App() {
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
           <p>&copy; 2025 Mojis Mattel. All rights reserved.</p>
         </div>
